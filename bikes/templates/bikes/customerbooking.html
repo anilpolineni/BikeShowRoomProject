@@ -1,0 +1,41 @@
+{% extends 'bikes/base.html'%}
+{% block title %}CustomerBooking{% endblock title %}
+{% block content%}
+
+<div class="container mt-4">
+
+	<table class="table table-bordered table-hover text-primary  table-striped">
+		<tr>
+			<thead>
+				<th>S.no</th>
+				<th>CustomerName</th>
+				<th>BikeModel</th>
+				<th>Tracking</th>
+				<th class="text-center">Actions/Status</th>
+			</thead>
+		</tr>
+		{% for cbooking in cbookings%}
+		
+		<tr>
+			<tbody>
+				<td>{{forloop.counter}}</td>
+				<td>{{cbooking.user}}</td>
+				<td>{{cbooking.bikemodel}}</td>
+				<td>{{cbooking.tracking}}</td>
+				{% if cbooking.status == "confirmed"%}
+				{% if cbooking.expecteddate %}
+				<td class="text-center"><a href="{% url 'orderacceptance' cbooking.id  %}" class="btn btn-outline-success">Edit</a></td>
+				{% else %}
+				<td class="text-center"><a href="{% url 'orderacceptance' cbooking.id  %}" class="btn btn-outline-success">Accept</a></td>
+				{% endif %}
+				{% else %}
+				<td>{{cbooking.status}} (Waiting for User Confirmation)</td>
+				{% endif %}
+			</tbody>
+		</tr>
+		{% endfor %}
+	</table>
+
+	
+</div>
+{% endblock %}

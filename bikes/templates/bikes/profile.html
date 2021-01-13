@@ -1,0 +1,49 @@
+{% extends 'bikes/base.html'%}
+{% block title %}Profile{% endblock title %}
+{% block content%}
+
+<div class="container card card-body">
+	<div class="row">
+		<div class="col-md-4">
+			<h1 class="alert alert-info text-center">Profile</h1>
+			<img src="{{user.userprofile.image.url}}" class="rounded-circle"  style="width: 250px; height: 250px;display: block; margin: 0 auto;">
+		</div>
+		<div class="col-md-8">
+			<h1 class="alert alert-primary text-center">Details</h1>
+			<table class="table table-borderless">
+				<tr>
+					<th>UserName</th>
+					<td style="font-weight: bold;">{{user.username}}</td>
+				</tr>
+
+				<tr>
+					<th>FullName</th>
+					<td>{{user.first_name}} {{user.last_name}}</td>
+				</tr>
+				
+				<tr>
+					<th>Email</th>
+					<td>{{user.email}}</td>
+				</tr>
+				<tr>
+					<th>Gender</th>
+					<td>{{pro.gender}}</td>
+				</tr>
+				<tr>
+					<th>Phone_NO</th>
+					<td>{{pro.phno}}</td>
+				</tr>
+				<tr>
+					<th>Age</th>
+					<td>{{pro.age}}</td>
+				</tr>
+				<tr>
+					<th>Date_Joined:-</th>
+					<td>{{user.date_joined}}</td>
+				</tr>
+			</table>
+			<a href="{% url 'updateprofile'%}"class="btn btn-outline-warning btn-lg ">Update</a>
+		</div>
+	</div>
+</div>
+{% endblock %}

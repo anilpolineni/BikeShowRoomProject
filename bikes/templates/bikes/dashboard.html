@@ -1,0 +1,95 @@
+{% extends 'bikes/base.html'%}
+{% load static %}
+{% block content %}
+
+<style>
+  .prjdiv:hover{
+    transform:translateY(-10px)
+  }
+
+  div .container1{
+    background-color:#b1ffcf;
+    border-radius:8px;
+  }
+    
+  div .container2{
+    background-color:#c8f3a6;
+    border-radius:8px;
+  }
+
+  div .container3{
+    background-color:#d8ffe7;
+    border-radius:8px;
+  }
+
+  div .container4{
+    background-color:lightblue;
+    border-radius:8px;
+  }
+
+  div .container5{
+    background-color:#adbee3;
+    border-radius:8px;
+  }
+
+  div .container6{
+    background-color:#e7d3f0;
+    border-radius:8px;
+  }
+
+  h2, h4{
+    padding:10Px;
+  }
+</style>
+
+<div class="container" style="margin-top:2%; border:solid;color: red; background-color: #d3f0d8; border-radius:5%; padding-top: 7%;padding-bottom: 2%;">
+
+  <h1 class=" alert alert-primary text-center" style="margin-top: -20px; background-color: #9bff00">Admin DashBoard</h1>
+  <div class="row">
+    <div class="col-md-4 prjdiv">
+      <div class="container1">
+        <h2 class="text-center" style="color:blue">{{customercount}}</h2>
+        <a href="{% url 'viewusers'%}"><h4 class="text-center" style="color:black">Total Customers</h4></a>
+      </div>
+    </div>
+
+    <div  class="col-md-4 prjdiv">
+      <div class="container2">
+        <h2 class="text-center" style="color:blue">{{allbikescount}}</h2>
+        <a href="{% url 'allbikes'%}"><h4 class="text-center" style="color:black">Total Bikes</h4></a>
+      </div>
+    </div>
+
+    <div  class="col-md-4 prjdiv">
+      <div class="container3">
+        <h2 class="text-center" style="color:blue">{{companycount}}</h2>
+        <a href="{% url 'allcompany'%}"><h4 class="text-center" style="color:black">Total Companys</h4></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+
+    <div  class="col-md-4 prjdiv">
+      <div class="container4">
+        <h2 class="text-center" style="color:blue">{{Pending}}</h2>
+        <a href=""><h4 class="text-center" style="color:black">Total Bikes Pending</h4></a>
+      </div>
+    </div>
+
+    <div  class="col-md-4 prjdiv">
+      <div class="container5">
+        <h2 class="text-center" style="color:blue">{{Rejected}}</h2>
+        <a href=""><h4 class="text-center" style="color:black">Total Bikes Rejected</h4></a>
+      </div>
+    </div>
+
+    <div  class="col-md-4 prjdiv">
+      <div class="container6">
+        <h2 class="text-center" style="color:blue">{{Delivered}}</h2>
+        <a href=""><h4 class="text-center" style="color:black">Total Bikes Delivered</h4></a>
+      </div>
+    </div>    
+  </div>
+</div>
+{% endblock %}

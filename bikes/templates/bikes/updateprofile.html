@@ -1,0 +1,21 @@
+{% extends 'bikes/base.html'%}
+{% block title %}UpdateProfile{% endblock title %}
+{% block content%}
+<style type="text/css">
+      .helptext{visibility: hidden;}
+      ul,li{display: none;
+      }
+    </style>
+<div class="container card card-body">
+	<h1 class="alert alert-warning text-center">UpdateProfile</h1>
+
+	<form method="POST" enctype="multipart/form-data">
+		{% csrf_token %}
+		{{u_form.as_p}}
+		{{p_form.as_p}}
+		<div class="text-center">
+			<input type="submit" value="Update" class="btn btn-outline-danger">
+		</div>
+	</form>
+</div>
+{% endblock %}

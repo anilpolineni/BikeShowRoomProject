@@ -1,0 +1,29 @@
+{% extends 'bikes/base.html'%}
+{% block title %}AllCompany{% endblock title %}
+{% load custom_filter_tags %}
+{% block content%}
+
+<div class="container mt-3">
+	<h1 class=" alert alert-danger text-primary text-center">AllCompany's</h1>
+	<div class="col-md-12">
+		<div class="row d-flex justify-content-between">
+			{% if comp %}
+			{% for j in comp %}
+			<div class="col-md-4 rounded mb-4">
+				<div class="card">
+					<div class="card-header">
+						<img src="{{j.company|companyimage}}" title="{{j.company|companyimage}}" style="width: 100%;height: 200px;">
+					</div>
+					<a href="{% url 'viewcompanybikes' j.company %}" class="btn btn-outline-primary btn-block mb-3">{{j.company}}</a>
+				</div>
+			</div>
+			{% endfor %}
+			{% else %}
+			<h2 class="text-center">No Company's are Available </h2>
+			{% endif %}
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}

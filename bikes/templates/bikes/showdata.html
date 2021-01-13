@@ -1,0 +1,41 @@
+{% extends 'bikes/base.html'%}
+{% block title %}ShowData{% endblock title %}
+{% block content%}
+
+<div class="container pt-3">
+	<table class="table table-bordered  table-striped table-hover table-primary">
+		<thead>
+			<tr class="bg-info">
+				<th>S.no</th>
+				<th>Company</th>
+				<th>BikeModel</th>
+				<th>BikeImage</th>
+				<th colspan="2">Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% if data %}
+			{% for i in data%}
+			<tr>
+				<td>{{forloop.counter}}</td>
+				<td>{{i.company}}</td>
+				<td>{{i.bikemodel}}</td>
+				<td>
+					<img src="{{i.bikefrontimage.url}}" style="width: 100px; height: 50px;">
+				</td>
+				<td>
+					<a href="{% url 'updatebike' i.id %}" class="btn btn-outline-success btn-md">Edit</a>
+				</td>
+				<td>
+					<a href="{% url 'deletebike' i.id %}" class="btn btn-outline-danger btn-md">Delete</a>
+				</td>
+			</tr>
+		</tbody>
+		{% endfor %}
+		{% else %}
+		<h1 class="text-center">No Bikes</h1>
+		{% endif %}
+	</table>
+</div>
+
+{% endblock %}

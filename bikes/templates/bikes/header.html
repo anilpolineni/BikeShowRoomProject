@@ -1,0 +1,82 @@
+<nav class="navbar navbar-expand-md  navbar-dark sticky-top" style="background-color:green">
+	  <a class="navbar-brand" href="{% url 'home' %}"style="font-weight: bold; font-family: 'Monotype Corsiva';color:yellow;">BikeSowRoom</a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+	    <span class="navbar-toggler-icon"></span>
+	  </button>
+	  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+	    <ul class="navbar-nav">
+	      <li class="nav-item">
+	        <a class="nav-link" href="{% url 'home' %}"><i class="fa fa-home" style="color: yellow"></i>Home</a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link" href="{% url 'aboutus' %}"><i class="fa fa-info-circle"style="color: red"></i>AboutUs</a>
+	      </li>
+	      {% if user.is_authenticated%}
+	      {% if user.is_staff %}
+	       <li class="nav-item">
+	        <a class="nav-link" href="{% url 'dashboard' %}"><i class="fa fa-tachometer" style="color: red;"></i>Dashboard</a>
+	      </li>
+	       <li class="nav-item">
+	        <a class="nav-link" href="{% url 'addbikes' %}"><i class="fa fa-motorcycle"style="color: blue"></i>AddBikes</a>
+	      </li>
+	       <li class="nav-item">
+	        <a class="nav-link" href="{% url 'allbikes' %}"><i class="fa fa-motorcycle"style="color: blue"></i>AllBikes</a>
+	      </li>
+
+	      <li class="nav-item">
+	        <a class="nav-link" href="{% url 'allcompany' %}"><i class="fa fa-building-o"></i>AllCompany</a>
+	      </li>
+
+	      <li class="nav-item">
+	        <a class="nav-link" href="{% url 'showdata' %}"><i class="fa fa-archive"></i>ShowActions</a>
+	      </li>
+	       
+	   
+	      <li class="nav-item">
+	        <a class="nav-link" href="{% url 'customerbooking' %}"><i class="fa fa-address-book-o"></i>Booked</a>
+	      </li>
+
+	      <li class="nav-item">
+	        <a class="nav-link" href="{% url 'viewusers' %}"><i class="fa fa-users"></i>ViewUsers</a>
+	      </li>
+
+	      {% else %}
+	       <li class="nav-item">
+	        <a class="nav-link" href="{% url 'allbikes' %}"><i class="fa fa-motorcycle"style="color: blue"></i>AllBikes</a>
+	      </li>
+	       <li class="nav-item">
+	        <a class="nav-link" href="{% url 'allcompany' %}"><i class="fa fa-building-o"></i>AllCompany</a>
+	      </li>
+
+	       <li class="nav-item">
+	        <a class="nav-link" href="{% url 'myorder' %}"><i class="fa fa-first-order"></i>MyOrder</a>
+	      </li>
+	       
+	      {% endif %}
+	      {% endif %}
+	  </ul>
+	  <ul class="navbar-nav ml-auto">
+	  	{% if user.is_authenticated%}
+	  	<li class="nav-item dropdown">
+	  		<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+	  			<span style="color: yellow">Welcome</span>
+	  			<span style="color: red">{{request.user}}</span>
+	  		</a>
+	  		<div class="dropdown-menu">
+	  			<a class="dropdown-item" href="{% url 'profile' %}"><i class="fa fa-user" style="color: purple"></i>Profile</a>
+	  	        <!-- <a class="dropdown-item" href=""><i class="fa fa-key" style="color:black"></i>ChangePassword</a> -->
+	  	        <a class="dropdown-item" href="{% url 'logout' %}"><i class="fa fa-power-off"style="color: red"></i>Logout</a>
+	  	    </div>
+	  	</li>
+	  	{% else %}
+	  	<li class="nav-item">
+	  		<a class="nav-link" href="{% url 'register' %}"><i class="fa fa-user-plus"></i>Register</a>
+	  	</li>
+
+	  	<li class="nav-item">
+	  		<a class="nav-link" href="{% url 'login' %}"><i class="fa fa-sign-in" ></i>Login</a>
+	  	</li>
+	  	{% endif %}
+	  </ul>
+	</div>
+</nav>

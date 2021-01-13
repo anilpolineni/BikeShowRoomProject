@@ -1,0 +1,76 @@
+{% extends 'bikes/base.html'%}
+{% block title %}AddBikes{% endblock title %}
+{% load crispy_forms_tags %}
+{% block content%}
+
+<div class="container card card-body mt-3" style="background-color: lightyellow">
+	<h1 class="alert alert-warning text-center">UpdateBikes</h1>
+	<form method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+	    <div class="container card card-body mt-3" style="background-color: lightyellow">
+	<h1 class="alert alert-primary text-center">AddBikes</h1>
+	<form method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+
+		<strong><div class="form-row">
+
+			<div class="form-group col-md-4 mb-0">
+				{{ form.company|as_crispy_field }}
+			</div>
+
+			<div class="form-group col-md-4 mb-0">
+				{{ form.bikemodel|as_crispy_field }}
+			</div>
+
+			<div class="form-group col-md-4 mb-0">
+				{{ form.fueltype|as_crispy_field }}
+			</div>
+		</div>
+
+		<div class="form-row">
+			<div class="form-group col-md-4 mb-0">
+				{{ form.companybrand|as_crispy_field }}
+			</div>
+
+			<div class="form-group col-md-4 mb-0">
+				{{ form.bikefrontimage|as_crispy_field }}
+			</div>
+
+			<div class="form-group col-md-4 mb-0">
+				{{ form.bikebackimage|as_crispy_field }}
+			</div>
+		</div>
+
+		<div class="form-row">
+
+			<div class="form-group col-md-4 mb-0">
+				{{ form.bikerightimage|as_crispy_field }}
+			</div>
+
+			<div class="form-group col-md-4 mb-0">
+				{{ form.bikeleftimage|as_crispy_field }}
+			</div>
+
+			<div class="form-group col-md-4 mb-0">
+				{{ form.cost|as_crispy_field }}
+			</div>
+		</div>
+
+		<div class="form-row">
+
+			<div class="form-group col-md-6 mb-0">
+				{{ form.bikelocation|as_crispy_field }}
+			</div>
+
+			<div class="form-group col-md-6 mb-0">
+				{{ form.noofgears|as_crispy_field }}
+			</div>
+		</div></strong>
+
+		<div class="text-center">
+			<input type="submit" value="Update" class="btn btn-warning btn-lg">
+		</div>
+	</form>
+</div>
+
+{% endblock %}

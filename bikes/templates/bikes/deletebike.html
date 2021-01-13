@@ -1,0 +1,19 @@
+{% extends 'bikes/base.html'%}
+{% block title %}Delete{% endblock title %}
+{% block content%}
+
+<div class="container mt-3">
+	<h1 class=" alert alert-primary">DeleteBike</h1>
+	<form method="POST">
+		{% csrf_token %}
+		<div class="card card-body">
+			<h2 class="text-danger">Are You Sure You Want to Delete{{bike.bikemodel}} bike</h2>
+			<div class="text-center">
+				<a href="{% url 'showdata' %}"class="btn btn-warning btn-lg">Cancel</a>
+				<input type="submit" value="Delete" class="btn btn-danger btn-lg">
+			</div>
+			
+		</div>
+	</form>
+</div>
+{% endblock %}

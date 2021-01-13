@@ -1,0 +1,22 @@
+{% extends 'bikes/base.html'%}
+{% block title %}Login{% endblock title %}
+{% block content%}
+<div class="container card card-body  col-md-4 mt-3" style="background-color:#afd1ff;">
+		<h1 class="alert alert-info text-center" style="background-color: #5DADE2">LoginForm</h1>
+		<form action="#" method="POST">
+      {% csrf_token %}
+      <b>
+      <div class="form-group">
+      	<label for="un">UserName*</label>
+      	<input type="text" name="username" class="form-control" id="un" placeholder="Enter User">
+      </div>
+      <div class="form-group">
+      	<label for="pd">Password*</label>
+      	<input type="password" name="password" class="form-control" id="pd" placeholder="Enter ******"></b>
+      </div>
+      <div class="text-center">
+        <input type="submit" value="Login" class="btn btn-outline-primary btn-lg">
+      </div>
+    </form>
+  </div>
+{% endblock %}

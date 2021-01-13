@@ -1,0 +1,19 @@
+{% extends 'bikes/base.html'%}
+{% block title %}Delete{% endblock title %}
+{% block content%}
+
+<div class="container mt-3">
+	<h1 class=" alert alert-primary">DeleteOrder</h1>
+	<form method="POST">
+		{% csrf_token %}
+		<div class="card card-body">
+			<h5 class="text-danger text-center">Are You Sure You Want to Cancel the Order -->{{orders.bikemodel}} bike</h5>
+			<div class="text-center">
+				<input type="submit" value="Confrim" class="btn btn-danger btn-lg">
+				<a href="{% url 'myorder' %}"class="btn btn-warning btn-lg">Back</a>
+			</div>
+			
+		</div>
+	</form>
+</div>
+{% endblock %}

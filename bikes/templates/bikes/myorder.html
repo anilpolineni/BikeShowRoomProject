@@ -1,0 +1,54 @@
+{% extends 'bikes/base.html'%}
+{% block title %}myorder{% endblock title %}
+{% block content%}
+<style type="text/css">
+	th,td{
+		text-align: center;
+	}
+</style>
+<div class="container mt-4">
+	<h1 class="alert alert-primary text-center">MyOrder</h1>
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>BikeModel</th>
+				<th>Image</th>
+				<th>BikeLocation</th>
+				<th colspan="2" >Action/Status</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% if orders %}
+			{% for order in orders  %}
+			<tr>
+				<td>{{order.id}}</td>
+				<td>{{order.bikemodel}}</td>
+				<td><img src="{{order.bikefrontimage.url}}" style="width: 200px; height: 80px;"></td>
+				<td>{{order.bikelocation}}</td>
+
+				{% if order.status == "Pending" %}
+				<td>
+					<a href="{% url 'deleteorder' order.id %}" class="btn btn-outline-danger btn-md">DeleteOrder</a>
+				</td>
+				<td>
+					<a href="{% url 'confirmorder' order.id %}" class="btn btn-outline-warning btn-md">Confrim</a>
+				</td>
+				{% else %}
+				<td><b>Expected Date: </b><br>{{order.expecteddate}}</td>
+				<td><b>Tracking: </b><br>{{order.tracking}}</td>
+				{% endif %}
+			</tr>
+			{% endfor %}
+			{% else %}
+			<tr>
+				<td colspan="6"><h4 class="text-center">No Orders Found</h4></td>
+			</tr>
+			{% endif %}
+		</tbody>
+	</table>
+</div>
+
+
+
+{% endblock %}

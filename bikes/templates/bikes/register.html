@@ -1,0 +1,24 @@
+{% extends 'bikes/base.html'%}
+{% block content%}
+<style>
+  ul,li{
+    list-style-type: none;
+    padding-left : 10px;
+    display: inline-block;
+  }
+  form>ul,.helptext{
+    display: none;
+
+  }
+</style>
+	<div class="container card card-body  col-md-4 mt-3" style="background-color: lightblue">
+		<h1 class="alert alert-danger text-center">RegistrationForm</h1>
+		<form method="POST">
+      {% csrf_token %}
+      <strong>{{ form.as_p }}</strong>
+      <div class="text-center">
+        <input type="submit" value="Register" class="btn btn-outline-primary btn-lg">
+      </div>
+    </form>
+  </div>
+{% endblock %}
